@@ -46,6 +46,8 @@ def part1by2(n):
 
     return n
 
+#def part1by3(n):
+
 
 def unpart1by1(n):
     """
@@ -102,6 +104,7 @@ def deinterleave2(n):
     Deinterleaves an integer into two integers.
     """
     iterations = int(ceil(n.bit_length() / 32))
+    print n
 
     x = y = 0
     for i in range(iterations):
@@ -124,3 +127,11 @@ def deinterleave3(n):
     Deinterleaves an integer into three integers.
     """
     return unpart1by2(n), unpart1by2(n >> 1), unpart1by2(n >> 2)
+
+def interleave4(x,y,z,w):
+	return part1by3(x) | (part1by3(y) << 1) | (part1by3(z) << 2) | (part1by3(w) <<3)
+
+def interleave4(n):
+	return unpart1by3(x) | (unpart1by3(y) << 1) | (unpart1by3(z) << 2 | (unpart1by3(w)) << 3)
+	
+
