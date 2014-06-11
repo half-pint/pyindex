@@ -135,7 +135,6 @@ def deinterleave3(n):
 def interleave4(x,y,z,w):
 	answer = 0
 	iterations = max(x.bit_length(), y.bit_length(),z.bit_length(), w.bit_length())
-	print iterations
 	for i in range(iterations):
 		xnew = x & (1 << i)
 		ynew = y & (1 << i)
@@ -149,6 +148,20 @@ def interleave4(x,y,z,w):
 		print bin(answer)
 
 	return answer
+
+def deinterleave4(n):
+	x=y=z=w=0
+	iterations = int(ceil(n.bit_length()/4))
+	print iterations
+	for i in range(iterations):
+		print i
+		x |= ((n >> (3 + 4*i)) & 1 ) << i
+		y |= ((n >> (2 + 4*i)) & 1 ) << i
+		z |= ((n >> (1 + 4*i)) & 1 ) << i
+		w |= ((n >> (4*i)) & 1 ) << i
+		
+
+	return x,y,z,w
 		
 
 	
